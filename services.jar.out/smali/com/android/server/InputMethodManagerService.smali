@@ -4999,7 +4999,12 @@
     if-eqz v7, :cond_5
 
     :cond_3
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/InputMethodManagerService;->showFlymeImeSwitcherNotificationIfNeeded()V
+    
+    :cond_flyme_0
+
     :goto_1
+
     invoke-direct {p0, v2}, Lcom/android/server/InputMethodManagerService;->publishImeSelectorCustomTile(Landroid/view/inputmethod/InputMethodInfo;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -5071,11 +5076,11 @@
     :try_start_2
     iget-boolean v7, p0, Lcom/android/server/InputMethodManagerService;->mNotificationShown:Z
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_flyme_0
 
     iget-object v7, p0, Lcom/android/server/InputMethodManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_flyme_0
 
     iget-object v7, p0, Lcom/android/server/InputMethodManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
