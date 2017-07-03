@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/SystemServer$FlymeInjector;,
         Lcom/android/server/SystemServer$AdbPortObserver;
     }
 .end annotation
@@ -2816,6 +2817,7 @@
 
     .end local v34    # "atlas":Lcom/android/server/AssetAtlasService;
     :cond_1d
+    :goto_flyme_0
     :goto_26
     if-nez v53, :cond_1e
 

@@ -17258,6 +17258,8 @@
 
     iput-object v2, v0, Lcom/android/server/policy/PhoneWindowManager;->mAudioManager:Landroid/media/AudioManager;
 
+    invoke-static/range {p0 .. p1}, Lcom/android/server/policy/PhoneWindowManager$FlymeInjector;->initFlymeExtraFields(Lcom/android/server/policy/PhoneWindowManager;Landroid/content/Context;)V
+
     .line 1428
     return-void
 
@@ -19160,6 +19162,18 @@
     .end local v40    # "service":Lcom/android/internal/statusbar/IStatusBarService;
     :cond_38
     :goto_b
+    invoke-static/range {p0 .. p2}, Lcom/android/server/policy/PhoneWindowManager$FlymeInjector;->handleLongPressOnHeadSetIfNeeded(Lcom/android/server/policy/PhoneWindowManager;Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_flyme_0
+
+    const-wide/16 v4, -0x1
+
+    return-wide v4
+
+    :cond_flyme_0
+
     move-object/from16 v0, p0
 
     iget-boolean v4, v0, Lcom/android/server/policy/PhoneWindowManager;->mSearchKeyShortcutPending:Z
@@ -21920,7 +21934,7 @@
     :cond_36
     and-int/lit8 v24, v20, 0x1
 
-    if-nez v24, :cond_19
+    if-nez v24, :cond_flyme_0
 
     move-object/from16 v0, p0
 
@@ -21970,6 +21984,18 @@
     invoke-virtual {v0, v1}, Landroid/os/Message;->setAsynchronous(Z)V
 
     invoke-virtual/range {v17 .. v17}, Landroid/os/Message;->sendToTarget()V
+
+    :cond_flyme_0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move/from16 v2, v20
+
+    invoke-static {v0, v1, v2}, Lcom/android/server/policy/PhoneWindowManager$FlymeInjector;->interceptFlymeKeyBeforeQueueing(Lcom/android/server/policy/PhoneWindowManager;Landroid/view/KeyEvent;I)I
+
+    move-result v20
 
     goto/16 :goto_9
 

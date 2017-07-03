@@ -19,6 +19,10 @@
 
 
 # instance fields
+.field mFlymeHeadsUp:I
+
+.field mFlymeRemind:Z
+
 .field keyguard:Z
 
 .field peekable:Z
@@ -69,6 +73,8 @@
     iput v0, p0, Lcom/android/server/notification/RankingHelper$Record;->visibility:I
 
     iput-boolean v1, p0, Lcom/android/server/notification/RankingHelper$Record;->keyguard:Z
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/notification/RankingHelper$Record;->initFlymeExtraFields()V
 
     return-void
 .end method
