@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dashboard-categories
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.lineageos">
+    <dashboard-category android:id="@id/device_section" android:title="@string/header_category_device" android:key="@string/category_key_device">
+        <dashboard-tile android:icon="@drawable/ic_settings_display" android:id="@id/display_and_lights_settings" android:title="@string/display_and_lights" android:fragment="com.android.lineageos.DisplaySettings" />
+        <dashboard-tile android:icon="@drawable/ic_settings_buttons" android:id="@id/button_settings" android:title="@string/button_pref_title" android:fragment="com.android.lineageos.ButtonSettings" />
+    </dashboard-category>
+    <dashboard-category android:title="关于">
+        <dashboard-tile android:icon="@drawable/ic_settings_about" android:title="Modified by garyyiu2015" />
+        <dashboard-tile android:icon="@drawable/ic_settings_multiuser" android:title="Build data: 5th July 2017" />
+    </dashboard-category>
+</dashboard-categories>
